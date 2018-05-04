@@ -1,0 +1,2 @@
+insert into "Book" ("Availability", "Title", "Book_ID", "Alternative_Title", "Single_Copy", "ISBN", "Book_Type", "Author_ID")
+values ('true', 'Love in the Time of Cholera',  '2', 'null', 'true', '9783462032055', 'Paperback', '1')
