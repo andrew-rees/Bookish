@@ -1,4 +1,0 @@
-insert into "Book" ("Availability", "Title", "Book_ID", "Alternative_Title", "Single_Copy", "ISBN", "Book_Type", "Author_ID") values ('true', 'Nobody Writes to the Colonel',  '3', 'null', 'false', '9788661050954', 'Hardback', '1');
-insert into "Book" ("Availability", "Title", "Book_ID", "Alternative_Title", "Single_Copy", "ISBN", "Book_Type", "Author_ID") values ('true', 'Leaf Storm',  '4', 'null', 'true', '9780307350473', 'Hardback', '1');
-insert into "Book" ("Availability", "Title", "Book_ID", "Alternative_Title", "Single_Copy", "ISBN", "Book_Type", "Author_ID") values ('true', 'the Autumn of the Patriarch',  '5', 'null', 'true', '9781101911006', 'Paperback', '1');
-
