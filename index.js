@@ -3,6 +3,7 @@ const pgp = require("pg-promise");
 const readline = require("readline-sync");
 const Display = require("./display.js");
 const DbAccess = require("./dbAccess.js"); //temp
+const AdvancedSearch = require("./advancedSearch.js")
 
 //Choice to show all books, authors or available books
 
@@ -26,7 +27,7 @@ while (whatTypeOfSearch === null){
         display.showAllAuthorsAndBooks();
     }
     else if (whatTypeOfSearch === advancedSearch.toLowerCase()){
-        //call advancedsearch function
+        //advancedSearch();
     }
     else {
         console.log("Oops, please start again...")

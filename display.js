@@ -59,6 +59,25 @@ module.exports = class Display {
         });
     }
 
+    showBooks(searchString){
+        this.db.searchBooks(searchString)
+        .then(bookSearchReturn => {
+            console.log("------------------------------\nALL BOOKS THAT MATCH THIS SEARCH-------\n------------------------------");
+            let books = [];
+            bookSearchReturn.forEach(bookJson => {
+                const singleBook = new Book(bookJson)
+                console.log(singleBook.report(books))
+                books.push(singleBook);
+            });
+        }).catch((ex) => {
+            console.log(ex + "There are no books that match your search.");
+        });
+    }
+
+    showSpecificAuthorAndBooks(){
+
+    }
+
     
 
 }
