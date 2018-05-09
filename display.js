@@ -7,9 +7,9 @@ module.exports = class Display {
     static showAllBooks() {
         const db = pgp()("postgres://postgres:database@localhost:3000/bookish");
         //show all the books as array objects
-        
-            //Query returns Author full name
-            //display full name instead of Authorid in the .return method
+
+        //Query returns Author full name
+        //display full name instead of Authorid in the .return method
         const showAllBooks =
             db.any('SELECT * FROM "Book"')
             .then(booksReturn => {
@@ -22,30 +22,28 @@ module.exports = class Display {
                         bookJson.Book_Type,
                         bookJson.Checked_Out_To,
                         bookJson.Title,
-                        bookJson.Alternative_Title,
                         bookJson.Book_ID,
-                        bookJson.Author_ID)
-                        // function translateAuthorIdToFullName(){
-                        //     //get authorid from bookJson Or get this.AuthorID
-                        //     //insert into SQL query on Author table
-                        //     const translateAuthor = db.any('select "Author_Full_Name" from "Author" where "Author_ID" = ' + bookJson.Author_ID)
-                        //     .then(foo => {
-                        //         return translateAuthor
-                        //     })
-                            //Query returns Author full name
-                            //display full name instead of Authorid in the .return method
-                            
-
+                        bookJson.Author_ID,
+                        bookJson.Author_Full_Name)
+                    // function translateAuthorIdToFullName(){
+                    //     //get authorid from bookJson Or get this.AuthorID
+                    //     //insert into SQL query on Author table
+                    //     const translateAuthor = db.any('select "Author_Full_Name" from "Author" where "Author_ID" = ' + bookJson.Author_ID)
+                    //     .then(foo => {
+                    //         return translateAuthor
+                    //     })
+                    //Query returns Author full name
+                    //display full name instead of Authorid in the .return method
+                    //};
                     console.log(singleBook.report())
-                //};
+                });
+
                 console.log("Total number of books in the Library: " + booksReturn.length + "\n----------------");
-                //console.log(booksReturn);
 
             }).catch((ex) => {
                 console.log(ex);
-            });
-    })
-}
+            })
+    }
 
 
     static showAllAuthors() {

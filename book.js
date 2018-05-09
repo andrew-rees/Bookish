@@ -5,7 +5,7 @@ const Display = require("./display.js");
 
 
 module.exports = class Books {
-    constructor(isbn, dewey, availability, dueDate, bookType, checkedOutTo, title, bookId, authorId) {
+    constructor(isbn, dewey, availability, dueDate, bookType, checkedOutTo, title, bookId, authorId, authorFullName) {
       this.isbn = isbn;
       this.dewey = dewey;
       this.availability = availability;
@@ -15,6 +15,7 @@ module.exports = class Books {
       this.title = title;
       this.bookId = bookId;
       this.authorId = authorId; // turn this into number?
+      this.authorFullName = authorFullName;
     }
 
     isAvailable() {
@@ -31,7 +32,7 @@ module.exports = class Books {
     report(){
         return (
             "TITLE: " + this.title +
-            "\nAUTHOR: " + this.authorId + // get 
+            "\nAUTHOR: " + this.authorFullName + // get 
             "\nTYPE: " + this.bookType +
             "\nAVAILABILITY: " + this.isAvailable() +
             "\nSHELF REFERENCE  " + this.dewey +

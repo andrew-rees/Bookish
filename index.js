@@ -9,13 +9,13 @@ while (whatTypeOfSearch === null){
     const allBooksCommand = 'All Books';
     const allAuthorsCommand = 'All Authors';
     console.log("What would you like to search for? \n-Enter '" + allBooksCommand + "' to show all books in the Library; \n-Enter '" + allAuthorsCommand + "' to show all Authors that have books in the Library")
-    whatTypeOfSearch = readline.prompt().toLowerCase()
+    whatTypeOfSearch = readline.prompt().toLowerCase();
 
     if (whatTypeOfSearch === allBooksCommand.toLowerCase()) {
-        console.log(Display.showAllBooks())
+        Display.showAllBooks();
     }
     else if (whatTypeOfSearch === allAuthorsCommand.toLowerCase()){
-        console.log(Display.showAllAuthors())
+        Display.showAllAuthors();
     }
     else {
         console.log("Oops, please start again...")
