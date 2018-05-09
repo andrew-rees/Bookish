@@ -1,5 +1,3 @@
-const express = require("express");
-const pgp = require("pg-promise");
 const Display = require("./display.js");
 
 module.exports = class Books {
@@ -12,7 +10,7 @@ module.exports = class Books {
       this.checkedOutTo = bookJson.Checked_Out_To;
       this.title = bookJson.Title;
       this.bookId = bookJson.Book_ID;
-      this.authorId = bookJson.Author_ID; // turn this into number?
+      this.authorId = bookJson.Author_ID; 
       this.authorFullName = bookJson.Author_Full_Name;
     }
 
@@ -29,11 +27,11 @@ module.exports = class Books {
     report(){
         return (
             "TITLE: " + this.title +
-            "\nAUTHOR: " + this.authorFullName + // get 
+            "\nAUTHOR: " + this.authorFullName +
             "\nTYPE: " + this.bookType +
             "\nAVAILABILITY: " + this.isAvailable() +
             "\nSHELF REFERENCE  " + this.dewey +
-            "\n -------------------------"
+            "\n-------------------------"
         )
     }
 }

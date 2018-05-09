@@ -15,11 +15,12 @@ module.exports = class Display {
         //display full name instead of Authorid in the .return method
         this.db.getAllBooks()
         .then(booksReturn => {
+            console.log("---------------------------------------------------\n------------ALL BOOKS IN THE LIBRARY------------\n---------------------------------------------------")
             booksReturn.forEach(bookJson => {
                 const singleBook = new Book(bookJson)
                 console.log(singleBook.report())
             });
-            console.log("Total number of books in the Library: " + booksReturn.length + "\n----------------");
+            console.log("Total number of books in the Library: " + booksReturn.length + "\n----------------------");
         }).catch((ex) => {
             console.log(ex);
         })
@@ -29,19 +30,12 @@ module.exports = class Display {
     showAllAuthors() {
         this.db.getAllAuthors()
         .then(authorReturn => {
+            console.log("---------------------------------------------------\n------------ALL AUTHORS IN THE LIBRARY------------\n---------------------------------------------------")
             authorReturn.forEach(authorJson => {
-                const singleAuthor = new Author(
-                    authorJson.Author_ID,
-                    authorJson.First_Name,
-                    authorJson.Middle_Name,
-                    authorJson.Surname,
-                    authorJson.Pseudonym_First_Name,
-                    authorJson.Pseudonym_Middle_Name,
-                    authorJson.Pseudonym_Surname,
-                    authorJson.Author_Full_Name)
+                const singleAuthor = new Author(authorJson)
                 console.log(singleAuthor.report())
             });
-            console.log("Total number of Authors in the Library: " + authorReturn.length + "\n----------------");
+            console.log("Total number of Authors in the Library: " + authorReturn.length + "\n----------------------");
             //console.log(authorReturn);
         }).catch((ex) => {
             console.log(ex);

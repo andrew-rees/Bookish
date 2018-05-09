@@ -1,18 +1,20 @@
+const Display = require("./display.js");
+
 module.exports = class Authors {
-    constructor(authorId, firstName, middleName, surname, pseudonymFirstName, pseudonymMiddleName, pseudonymSurname, authorFullName) {
-      this.authorId = authorId;
-      this.firstName = firstName;
-      this.middleName = middleName;
-      this.surname = surname;
-      this.pseudonymFirstName = pseudonymFirstName;
-      this.pseudonymMiddleName = pseudonymMiddleName;
-      this.pseudonymSurname = pseudonymSurname;
-      this.authorFullName = authorFullName;
+    constructor(authorJson) {
+      this.authorId = authorJson.Author_ID;
+      this.firstName = authorJson.First_Name;
+      this.middleName = authorJson.Middle_Name;
+      this.surname = authorJson.Surname;
+      this.pseudonymFirstName = authorJson.Pseudonym_First_Name;
+      this.pseudonymMiddleName = authorJson.Pseudonym_Middle_Name;
+      this.pseudonymSurname = authorJson.Pseudonym_Surname;
+      this.authorFullName = authorJson.Author_Full_Name;
     }
 
     pseudonymnFull(){
         if (this.pseudonymFirstName !== null) {
-            return this.pseudonymFirstName + this.pseudonymSurname
+            return this.pseudonymFirstName + " " + this.pseudonymSurname
         }
         else {
             return "None"
@@ -21,9 +23,9 @@ module.exports = class Authors {
 
     report(){
         return (
-            "\nFULL NAME: " + this.authorFullName +
+            "FULL NAME: " + this.authorFullName +
             "\nKNOWN PSEUDONYMS: " + this.pseudonymnFull() +
-            "\n -------------------------"
+            "\n-------------------------"
         )
     }
 
