@@ -1,6 +1,7 @@
 const Book = require("./book.js");
 const Author = require("./author.js");
 const DbAccess = require("./dbAccess.js");
+const AuthorBook = require("./authorbook.js");
 
 module.exports = class Display {
     constructor() {
@@ -42,6 +43,22 @@ module.exports = class Display {
         });
     }
 
-    //show all Authors as array objects
+    showAllAuthorsAndBooks(){
+        this.db.getAuthorsAndGetBooks()
+        .then(authorBookReturn => {
+            console.log("---------------------------------------------------\nALL AUTHORS WITH THEIR BOOKS IN THE LIBRARY------------\n---------------------------------------------------");
+
+            let authorBooks = [];
+            authorBookReturn.forEach(authorBookJson => {
+                const singleAuthorBook = new AuthorBook(authorBookJson)
+                console.log(singleAuthorBook.reportChoice(authorBooks))
+                authorBooks.push(singleAuthorBook);
+            });
+        }).catch((ex) => {
+            console.log(ex);
+        });
+    }
+
+    
 
 }
