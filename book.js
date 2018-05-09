@@ -5,17 +5,17 @@ const Display = require("./display.js");
 
 
 module.exports = class Books {
-    constructor(isbn, dewey, availability, dueDate, bookType, checkedOutTo, title, bookId, authorId, authorFullName) {
-      this.isbn = isbn;
-      this.dewey = dewey;
-      this.availability = availability;
-      this.dueDate = dueDate;
-      this.bookType = bookType;
-      this.checkedOutTo = checkedOutTo;
-      this.title = title;
-      this.bookId = bookId;
-      this.authorId = authorId; // turn this into number?
-      this.authorFullName = authorFullName;
+    constructor(bookJson) {
+      this.isbn = bookJson.ISBN;
+      this.dewey = bookJson.DEWEY;
+      this.availability = bookJson.Availability;
+      this.dueDate = bookJson.Due_Date;
+      this.bookType = bookJson.Book_Type;
+      this.checkedOutTo = bookJson.Checked_Out_To;
+      this.title = bookJson.Title;
+      this.bookId = bookJson.Book_ID;
+      this.authorId = bookJson.Author_ID; // turn this into number?
+      this.authorFullName = bookJson.Author_Full_Name;
     }
 
     isAvailable() {
