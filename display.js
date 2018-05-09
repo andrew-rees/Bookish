@@ -3,13 +3,17 @@ const Author = require("./author.js");
 const DbAccess = require("./dbAccess.js");
 
 module.exports = class Display {
-    static showAllBooks() {
-        const db = new DbAccess("postgres://postgres:database@localhost:3000/bookish");
+    constructor() {
+        this.db = new DbAccess("postgres://postgres:database@localhost:3000/bookish");
+    }
+
+    showAllBooks() {
+        
         //show all the books as array objects
 
         //Query returns Author full name
         //display full name instead of Authorid in the .return method
-        db.getAllBooks()
+        this.db.getAllBooks()
         .then(booksReturn => {
             booksReturn.forEach(bookJson => {
                 const singleBook = new Book(bookJson)
@@ -22,9 +26,8 @@ module.exports = class Display {
     }
 
 
-    static showAllAuthors() {
-        const db = new DbAccess("postgres://postgres:database@localhost:3000/bookish");
-        db.getAllAuthors()
+    showAllAuthors() {
+        this.db.getAllAuthors()
         .then(authorReturn => {
             authorReturn.forEach(authorJson => {
                 const singleAuthor = new Author(

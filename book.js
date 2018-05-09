@@ -2,8 +2,6 @@ const express = require("express");
 const pgp = require("pg-promise");
 const Display = require("./display.js");
 
-
-
 module.exports = class Books {
     constructor(bookJson) {
       this.isbn = bookJson.ISBN;
@@ -28,7 +26,6 @@ module.exports = class Books {
 
     }
     
-
     report(){
         return (
             "TITLE: " + this.title +
@@ -39,5 +36,4 @@ module.exports = class Books {
             "\n -------------------------"
         )
     }
-
 }
